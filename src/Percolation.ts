@@ -1,10 +1,11 @@
 import WeightedQuickUnionUF from "./wquuf";
 
-class Percolation {
+export default class Percolation {
   private grid: boolean[][];
   private gridLength: number;
   private top: number = 0;
   private bottom: number;
+  private openSites: number = 0;
   private uf: WeightedQuickUnionUF;
 
   constructor(N: number) {
@@ -45,6 +46,7 @@ class Percolation {
     if (column < this.gridLength && this.isOpen(row, column + 1)) {
       this.uf.union(this.getSiteIndex(row, column), this.getSiteIndex(row, column + 1))
     }
+    this.openSites++;
   }
   // checks if the site is open
   public isOpen(row: number, column: number) {
@@ -64,6 +66,12 @@ class Percolation {
       console.log(rowString);
     }
   }
+
+  // returns the number of open sites
+  public openSiteCount() {
+    return this.openSites;
+  }
+
   // opens a random number of cells
   public percolateChance(percentage: number) {
     if (percentage < 0 || percentage > 100) {
@@ -95,6 +103,7 @@ const percolate = new Percolation(5);
 // percolate.open(5, 4);
 // percolate.open(5, 5);
 percolate.percolateChance(60);
+console.log(percolate.openSiteCount());
 percolate.displayGrid();
 
 console.log(percolate.percolates());
