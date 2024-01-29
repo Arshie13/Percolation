@@ -1,4 +1,5 @@
 import Percolation from './Percolation'
+import readline from 'readline-sync'
 
 class PercolationStats {
   private mean: number;
@@ -58,8 +59,23 @@ class PercolationStats {
   }
 }
 
-const percolationStats = new PercolationStats(200, 100);
-console.log('Mean: ', + percolationStats.getMean())
-console.log('Standard Deviation: ', percolationStats.getSD())
-console.log('High Confidence: ', + percolationStats.getHighConfidence())
-console.log('Low Confidence: ', + percolationStats.getLowConfidence())
+async function getInput() {
+  let n = readline.questionInt('Please enter the value for n: ');
+  let trials = readline.questionInt('Please enter the number of trials: ');
+  return [n, trials];
+}
+
+getInput().then(([n, trials]) => {
+  const percolationStats = new PercolationStats(n, trials);
+  
+  console.log('Mean: ', + percolationStats.getMean())
+  console.log('Standard Deviation: ', percolationStats.getSD())
+  console.log('High Confidence: ', + percolationStats.getHighConfidence())
+  console.log('Low Confidence: ', + percolationStats.getLowConfidence())
+})
+
+// const percolationStats = new PercolationStats(200, 100);
+// console.log('Mean: ', + percolationStats.getMean())
+// console.log('Standard Deviation: ', percolationStats.getSD())
+// console.log('High Confidence: ', + percolationStats.getHighConfidence())
+// console.log('Low Confidence: ', + percolationStats.getLowConfidence())
