@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "name": "percolation",
+  "description": "simple percolation and monte carlo simulation with weighted quick union in typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arshie13/Percolation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arshie13/Percolation/issues"
+  },
+  "homepage": "https://github.com/Arshie13/Percolation#readme"
+}
