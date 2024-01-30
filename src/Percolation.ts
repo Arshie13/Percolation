@@ -48,14 +48,22 @@ export default class Percolation {
     }
     this.openSites++;
   }
+
   // checks if the site is open
   public isOpen(row: number, column: number) {
     return this.grid[row - 1][column - 1]
   }
+
   // checks if the site is full
+  private isFull(row: number, column: number) {
+    return this.uf.connected(this.top, this.getSiteIndex(row, column))
+  }
+
+  // checks if the grid percolates
   public percolates(): boolean {
     return this.uf.connected(this.top, this.bottom)
   }
+
   // displays the grid
   public displayGrid(): void {
     for (let i = 0; i < this.gridLength; i++) {
@@ -68,11 +76,11 @@ export default class Percolation {
   }
 
   // returns the number of open sites
-  public openSiteCount() {
+  public numberOfOpenSites() {
     return this.openSites;
   }
 
-  // opens a random number of cells
+  // opens a random number of cells (ignore this)
   public percolateChance(percentage: number) {
     if (percentage < 0 || percentage > 100) {
       throw new Error("percentage must be between 0 and 100")
@@ -105,7 +113,7 @@ export default class Percolation {
 // percolate.open(5, 4);
 // percolate.open(5, 5);
 // percolate.percolateChance(60);
-// console.log(percolate.openSiteCount());
+// console.log(percolate.numberOfOpenSites());
 // percolate.displayGrid();
 
 // console.log(percolate.percolates());

@@ -28,7 +28,7 @@ export default class PercolationStats {
           percolation.open(randomRow, randomColumn);
         }
       }
-      results[i] = percolation.openSiteCount() / (n * n);
+      results[i] = percolation.numberOfOpenSites() / (n * n);
     }
 
     this.mean = results.reduce((a, b) => a + b) / results.length;
@@ -59,11 +59,11 @@ export default class PercolationStats {
   }
 }
 
-async function getInput() {
-  let n = readline.questionInt('Please enter the value for n: ');
-  let trials = readline.questionInt('Please enter the number of trials: ');
-  return [n, trials];
-}
+// async function getInput() {
+//   let n = readline.questionInt('Please enter the value for n: ');
+//   let trials = readline.questionInt('Please enter the number of trials: ');
+//   return [n, trials];
+// }
 
 // getInput().then(([n, trials]) => {
 //   const percolationStats = new PercolationStats(n, trials);
