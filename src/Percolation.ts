@@ -1,5 +1,4 @@
 import WeightedQuickUnionUF from "./wquuf";
-// import * as readline from 'readline-sync';
 
 export default class Percolation {
   private grid: boolean[][];

@@ -1,7 +1,7 @@
 import Percolation from './Percolation'
 import readline from 'readline-sync'
 
-class PercolationStats {
+export default class PercolationStats {
   private mean: number;
   private sd: number;
   private highConfidence: number;
@@ -65,14 +65,14 @@ async function getInput() {
   return [n, trials];
 }
 
-getInput().then(([n, trials]) => {
-  const percolationStats = new PercolationStats(n, trials);
+// getInput().then(([n, trials]) => {
+//   const percolationStats = new PercolationStats(n, trials);
   
-  console.log('Mean: ', + percolationStats.getMean())
-  console.log('Standard Deviation: ', percolationStats.getSD())
-  console.log('High Confidence: ', + percolationStats.getHighConfidence())
-  console.log('Low Confidence: ', + percolationStats.getLowConfidence())
-})
+//   console.log('Mean: ', + percolationStats.getMean())
+//   console.log('Standard Deviation: ', percolationStats.getSD())
+//   console.log('High Confidence: ', + percolationStats.getHighConfidence())
+//   console.log('Low Confidence: ', + percolationStats.getLowConfidence())
+// })
 
 // const percolationStats = new PercolationStats(200, 100);
 // console.log('Mean: ', + percolationStats.getMean())
