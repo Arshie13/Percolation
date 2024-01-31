@@ -1,4 +1,5 @@
-import WeightedQuickUnionUF from "./wquuf";
+import WeightedQuickUnionUF from "./WeightedQuickUnionUF";
+import readline from "readline-sync";
 
 export default class Percolation {
   private grid: boolean[][];
@@ -112,7 +113,7 @@ export default class Percolation {
 // percolate.open(5, 3);
 // percolate.open(5, 4);
 // percolate.open(5, 5);
-// percolate.percolateChance(60);
+// percolate.percolateChance(90);
 // console.log(percolate.numberOfOpenSites());
 // percolate.displayGrid();
 

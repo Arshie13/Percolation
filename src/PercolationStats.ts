@@ -1,5 +1,4 @@
-import Percolation from './Percolation'
-import readline from 'readline-sync'
+import Percolation from './Percolation';
 
 export default class PercolationStats {
   private mean: number;
